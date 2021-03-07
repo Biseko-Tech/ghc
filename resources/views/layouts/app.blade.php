@@ -9,16 +9,22 @@
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{ asset('backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Toastr Css -->
   <link rel="stylesheet" type="text/css" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
+  <!-- Tempusdominus Css -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
 
   @livewireStyles
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
 
     <!-- Navbar -->
@@ -31,6 +37,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         {{ $slot }}
+        @yield('content')
     </div>
     <!-- /.content-wrapper -->
 
@@ -55,16 +62,26 @@
   <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
   <!-- Bootstrap 4 -->
   <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- overlayScrollbars -->
+  <script src="{{ asset('backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
   <!-- AdminLTE App -->
   <script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
+  <script src="{{ asset('backend/dist/js/pages/dashboard2.js') }}"></script>
+  <!-- ChartJS -->
+  <script src="{{ asset('backend/plugins/chart.js/Chart.min.js') }}"></script>
   <!-- Toastr JS -->
   <script type="text/javascript" src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
+  <!-- Moment JS -->
+  <script type="text/javascript" src="{{ asset('backend/plugins/moment/moment.min.js') }}"></script>
+  <!-- Tempusdominus JS -->
+  <script type="text/javascript" src="{{ asset('backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
   <script>
     $(document).ready(function(){
       toastr.options = {
         "positionClass": "toast-top-right",
         "progressBar": true,
+        "timeOut": "2000",
       }
 
       window.addEventListener('hide-form', event => {
@@ -87,6 +104,38 @@
       $('#confirmationModal').modal('hide');
       toastr.success(event.detail.message, 'Success!');
     })
+
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $('#commencementDate').datetimepicker({
+            format: 'L'
+        });
+
+        $('#endDate').datetimepicker({
+            format: 'L'
+        });
+
+        $('#birthDate').datetimepicker({
+            format: 'L'
+        });
+
+        $('#birthDate').on("change.datetimepicker", function (e) {
+          let birthDate = $(this).data('birthdate');
+          eval(birthDate).set('data.birthDate', $('#birthDateInput').val());
+        });
+
+        $('#commencementDate').on("change.datetimepicker", function (e) {
+          let commencementDate = $(this).data('commencementdate');
+          eval(commencementDate).set('data.commencementDate', $('#commencementDateInput').val());
+        });
+
+        $('#endDate').on("change.datetimepicker", function (e) {
+          let endDate = $(this).data('endingdate');
+          eval(endDate).set('data.endDate', $('#endingDateInput').val());
+        });
+    });
   </script>
 
   @livewireScripts

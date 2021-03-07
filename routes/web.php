@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Users\ListUsers;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CustomersController;
+use App\Http\Livewire\Admin\Customers\ListCustomers;
+use App\Http\Livewire\Admin\Customers\CreateCustomerForm;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +25,7 @@ Route::get('/', function () {
 Route::get('admin/dashboard', DashboardController::class)->name('admin.dashboard');
 
 Route::get('admin/users', ListUsers::class)->name('admin.users');
+
+Route::get('admin/customers', ListCustomers::class)->name('admin.customers');
+Route::get('admin/customers/create', CreateCustomerForm::class)->name('admin.customers.create');
+Route::get('admin/customers/{id}', [CustomersController::class, 'getCustomerById']);

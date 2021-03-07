@@ -33,117 +33,54 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="{{ route('admin.users') }}" class="nav-link {{ request()->is('admin/users') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-users-cog"></i>
               <p>
-                Users
+                Users Management
               </p>
             </a>
-          </li>
-          <li class="nav-item has-treeview menu-close">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fal fa-money-bill"></i>
-              <p>
-                Sales
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Invoices
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Revenues
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Customers
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview menu-close">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-shopping-cart"></i>
-              <p>
-                Purchases
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Bills
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Payments
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Vendors
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview menu-close">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-briefcase"></i>
-              <p>
-                Banking
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Accounts
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Transfers
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Transactions
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Reconciliations
-                  </p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.customers') }}" class="nav-link {{ request()->is('admin/customers') ? 'active' : '' }}">
+              <i class="nav-icon far fa-address-card"></i>
+              <p>
+                Customers
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ request()->is('admin/incomes') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-money-check"></i>
+              <p>
+                Incomes
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ request()->is('admin/expenses') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-money-check-alt"></i>
+              <p>
+                Expenses
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ request()->is('admin/transfers') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-exchange-alt"></i>
+              <p>
+                Transfers
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ request()->is('admin/invoices') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-file-invoice"></i>
+              <p>
+                Invoices
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ request()->is('admin/reports') ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Reports
@@ -151,7 +88,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ request()->is('admin/settings') ? 'active' : '' }}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Settings
@@ -159,7 +96,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ request()->is('admin/logout') ? 'active' : '' }}">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
                 Logout
